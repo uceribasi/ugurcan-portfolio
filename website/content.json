@@ -1,0 +1,324 @@
+{
+  "name": "Uğur Can Çeribaşı",
+  "headline": "Senior Software Developer",
+  "company": "Trendyol Group",
+  "location": {
+    "tr": "İstanbul, Türkiye",
+    "en": "Istanbul, Türkiye"
+  },
+  "github": "https://github.com/uceribasi",
+  "linkedin": "https://www.linkedin.com/in/u%C4%9Fur-can-%C3%A7eriba%C5%9F%C4%B1-08062b18a/",
+  "experience": [
+    {
+      "company": "Trendyol Group",
+      "role": "Senior Software Developer",
+      "start": "2025-12",
+      "end": null,
+      "mode": {
+        "tr": "Hibrit",
+        "en": "Hybrid"
+      }
+    },
+    {
+      "company": "Ozan",
+      "role": "Frontend Team Lead",
+      "start": "2023-07",
+      "end": "2025-12",
+      "mode": {
+        "tr": "Uzaktan",
+        "en": "Remote"
+      }
+    },
+    {
+      "company": "Ozan",
+      "role": "Senior Frontend Developer",
+      "start": "2022-09",
+      "end": "2023-07"
+    },
+    {
+      "company": "BluTV",
+      "role": "Senior Frontend Developer",
+      "start": "2021-06",
+      "end": "2022-09"
+    },
+    {
+      "company": "GittiGidiyor",
+      "role": "Software Engineer",
+      "start": "2020-12",
+      "end": "2021-06"
+    },
+    {
+      "company": "Finartz",
+      "role": "Software Engineer",
+      "start": "2020-12",
+      "end": "2021-06"
+    },
+    {
+      "company": {
+        "tr": "Sabancı Üniversitesi",
+        "en": "Sabancı University"
+      },
+      "role": "Software Development Specialist",
+      "start": "2019-04",
+      "end": "2020-12"
+    },
+    {
+      "company": "Private Procare Sağlık Hizmetleri",
+      "role": {
+        "tr": "Kıdemli Yazılım Geliştirici",
+        "en": "Senior Software Developer"
+      },
+      "start": "2017-10",
+      "end": "2019-01"
+    },
+    {
+      "company": "Vizyon Yazılım",
+      "role": {
+        "tr": "Kurucu Ortak",
+        "en": "Co-founder"
+      },
+      "start": "2016-12",
+      "end": "2017-10"
+    },
+    {
+      "company": "Rotax Yazılım",
+      "role": "Web Development Specialist",
+      "start": "2016-02",
+      "end": "2016-12"
+    },
+    {
+      "company": "Karen Endüstriyel",
+      "role": "Web Developer",
+      "start": "2014-03",
+      "end": "2016-01"
+    }
+  ],
+  "education": [
+    {
+      "school": {
+        "tr": "Marmara Üniversitesi",
+        "en": "Marmara University"
+      },
+      "degree": {
+        "tr": "Yüksek Lisans · Mühendislik Yönetimi",
+        "en": "Master’s · Engineering Management"
+      },
+      "start": "2025-09",
+      "end": "2026-07"
+    },
+    {
+      "school": {
+        "tr": "Ahmet Yesevi Üniversitesi",
+        "en": "Ahmet Yesevi University"
+      },
+      "degree": {
+        "tr": "Lisans · Yönetim Bilişim Sistemleri",
+        "en": "Bachelor’s · Management Information Systems"
+      },
+      "start": "2022",
+      "end": "2025"
+    },
+    {
+      "school": {
+        "tr": "Marmara Üniversitesi",
+        "en": "Marmara University"
+      },
+      "degree": {
+        "tr": "Ön Lisans · Bilgisayar Programcılığı",
+        "en": "Associate Degree · Computer Programming"
+      },
+      "start": "2014",
+      "end": "2016"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Tools for Data Science",
+      "issuer": "IBM",
+      "date": "2025-07"
+    },
+    {
+      "name": "Introduction to Software Engineering",
+      "issuer": "IBM",
+      "date": "2025-07"
+    },
+    {
+      "name": "Data Science Orientation",
+      "issuer": "IBM",
+      "date": "2025-07"
+    },
+    {
+      "name": "What is Data Science?",
+      "issuer": "IBM",
+      "date": "2025-07"
+    }
+  ],
+  "skills": [
+    {
+      "name": {
+        "tr": "Frontend & BFF",
+        "en": "Frontend & BFF"
+      },
+      "items": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "NestJS",
+        "GraphQL",
+        "REST"
+      ]
+    },
+    {
+      "name": {
+        "tr": "Mimari & liderlik",
+        "en": "Architecture & leadership"
+      },
+      "items": [
+        "Micro frontends",
+        "Modular architecture",
+        "Technical governance",
+        "Team development"
+      ]
+    },
+    {
+      "name": {
+        "tr": "AI & veri",
+        "en": "AI & data"
+      },
+      "items": [
+        "Python",
+        "LLM applications",
+        "RAG",
+        "Embeddings",
+        "Vector databases",
+        "pandas",
+        "NumPy",
+        "Jupyter"
+      ]
+    },
+    {
+      "name": {
+        "tr": "Ürün geliştirme",
+        "en": "Product development"
+      },
+      "items": [
+        "Rust",
+        "Tauri",
+        "Vite",
+        "Docker",
+        "Coolify",
+        "Git",
+        "GitHub"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "readling",
+      "name": "Readling",
+      "category": {
+        "tr": "Web · Dil öğrenme",
+        "en": "Web · Language learning"
+      },
+      "site": "https://getreadling.com/",
+      "repo": "https://github.com/uceribasi/readling",
+      "logo": "readling.svg",
+      "image": "readling.png",
+      "stack": [
+        "React",
+        "TypeScript",
+        "IndexedDB",
+        "FSRS",
+        "Browser AI"
+      ],
+      "description": {
+        "tr": "Okuma, kelime öğrenme ve aralıklı tekrarı aynı akışta buluşturan açık kaynak dil öğrenme uygulaması.",
+        "en": "An open-source language learning app that brings reading, vocabulary and spaced repetition into one flow."
+      },
+      "details": {
+        "tr": [
+          "Metin, EPUB ve PDF üzerinde kelime ve ifade takibi; cümle bağlamında AI açıklamaları.",
+          "Tarayıcıda saklanan kitaplık ve kişisel kelime geçmişi; FSRS tabanlı tekrar ve testler.",
+          "Cihaz üzerinde AI veya kullanıcının seçtiği sağlayıcı; temel okuma ve pratik için hesap gerektirmeyen yapı."
+        ],
+        "en": [
+          "Word and phrase tracking in text, EPUB and PDF, with AI explanations in sentence context.",
+          "Browser-stored library and vocabulary history, with FSRS-based review and tests.",
+          "On-device AI or a provider chosen by the user; core reading and practice without an account."
+        ]
+      }
+    },
+    {
+      "id": "nuai",
+      "name": "NU AI Video Editor",
+      "category": {
+        "tr": "Masaüstü · Video & AI",
+        "en": "Desktop · Video & AI"
+      },
+      "site": "https://getnuai.com/",
+      "repo": "https://github.com/uceribasi/nuai-video-editor",
+      "logo": "nuai.svg",
+      "image": "nuai.png",
+      "stack": [
+        "Rust",
+        "Tauri",
+        "React",
+        "whisper.cpp",
+        "ffmpeg"
+      ],
+      "description": {
+        "tr": "Kayıtlardaki duraklamaları, tekrarları ve dolgu seslerini temizleyen; altyazı ve beta dublaj özellikleri sunan Mac uygulaması.",
+        "en": "A Mac app that removes pauses, retakes and filler sounds from recordings, with subtitles and beta dubbing."
+      },
+      "details": {
+        "tr": [
+          "Yerel konuşma analizi, kelime zamanlamalı transkript ve kullanıcı tarafından gözden geçirilebilen kesim önerileri.",
+          "Kesimlere uyan altyazılar; SRT/VTT, seçilebilir dil izleri veya görüntüye yazılan altyazı çıktısı.",
+          "İsteğe bağlı AI incelemesi ve çeviri; konuşmacının izinli sesiyle yerel klonlama ve dublaj beta aşamasında."
+        ],
+        "en": [
+          "Local speech analysis, word-timed transcripts and cut suggestions the user can review.",
+          "Captions that follow edits, with SRT/VTT, selectable language tracks or burned-in output.",
+          "Optional AI review and translation, with local voice cloning and dubbing in beta for authorized voices."
+        ]
+      }
+    },
+    {
+      "id": "pastecompiler",
+      "name": "PasteCompiler",
+      "category": {
+        "tr": "Masaüstü · Geliştirici aracı",
+        "en": "Desktop · Developer tool"
+      },
+      "site": "http://pastecompiler.77.92.144.145.sslip.io/",
+      "repo": "https://github.com/uceribasi/paste-compiler",
+      "logo": "pastecompiler.svg",
+      "image": "pastecompiler.jpg",
+      "stack": [
+        "Rust",
+        "Tauri",
+        "React",
+        "TypeScript"
+      ],
+      "description": {
+        "tr": "Panodaki veriyi algılayıp 17 çıktı biçimine dönüştüren, değişiklikleri raporlayan ve tekrar kullanılabilir tarifler sunan masaüstü uygulaması.",
+        "en": "A desktop app that detects clipboard data, converts it into 17 output formats, reports changes and saves reusable recipes."
+      },
+      "details": {
+        "tr": [
+          "JSON, CSV/TSV, YAML, TOML, XML, SQL ve diğer biçimler arasında veri işleme.",
+          "Desteklenen çıktıları yeniden okuyarak fark ve kayıp kontrolü; SQL, şablon ve düz metinde bu doğrulama kullanılamaz.",
+          "Kaydedilebilir ve paylaşılabilir dönüşüm tarifleri; çevrimdışı kurallar veya isteğe bağlı AI sağlayıcıları."
+        ],
+        "en": [
+          "Data processing across JSON, CSV/TSV, YAML, TOML, XML, SQL and other formats.",
+          "Round-trip checking for supported outputs; SQL, templates and plain text do not support that verification.",
+          "Reusable, shareable conversion recipes, with offline rules or optional AI providers."
+        ]
+      }
+    }
+  ],
+  "source_reviewed": "2026-10-31",
+  "source_notes": "Career, education, certifications and professional bio read from the user-provided LinkedIn profile through the signed-in Chrome UI. Project details verified in their repositories. Preserve overlapping GittiGidiyor and Finartz dates; do not infer achievements or per-employer technology stacks. Do not publish private analytics, personal contact details, grades or unrelated profile content."
+}
