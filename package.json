@@ -1,0 +1,27 @@
+{
+  "name": "ugurcan-portfolio",
+  "version": "1.0.0",
+  "description": "Bilingual portfolio with an interactive Three.js sculpture and printable CV",
+  "scripts": {
+    "build": "python3 website/build.py && esbuild website/scene.js --bundle --minify --format=esm --target=es2020 --outfile=website/scene.bundle.js",
+    "preview": "python3 -m http.server 4175 --bind 127.0.0.1 --directory website"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uceribasi/ugurcan-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/uceribasi/ugurcan-portfolio/issues"
+  },
+  "homepage": "https://github.com/uceribasi/ugurcan-portfolio#readme",
+  "dependencies": {
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "private": true
+}
