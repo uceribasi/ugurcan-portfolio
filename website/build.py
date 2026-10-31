@@ -77,7 +77,7 @@ CREATIVE={
   'hero_eyebrow':'FRONTEND / MİMARİ / ÜRÜN',
   'creative_hero':'Pikselden<br><em>ürüne.</em>',
   'creative_intro':'Merhaba, ben Uğur Can. Arayüzler geliştiriyor, sistemler kuruyor ve fikirleri çalışan ürünlere dönüştürüyorum.',
-  'scene_caption':'Yüzeyin altında bir sistem var.','layers_open':'Katmanları aç','layers_close':'Katmanları kapat',
+  'live_canvas':'CANLI TUVAL','scene_expand':'Tam ekran keşfet','scene_close':'Kapat','scene_modes':'Sahne görünümü','mode_pixels':'Piksel','mode_code':'Kod','mode_sphere':'Küre','scatter':'Dağıt','gather':'Toparla','scene_pulse':'Dalga yarat','scene_instruction':'Fareyle it · tıkla ve dalga yarat','scene_dialog_label':'Etkileşimli parçacık sahnesi','scene_caption':'Yüzeyin altında bir sistem var.','layers_open':'Katmanları aç','layers_close':'Katmanları kapat',
   'work_eyebrow':'SEÇİLİ İŞLER','work_title':'Meraktan<br><em>doğan işler.</em>',
   'work_intro':'Kendi ihtiyaçlarımdan yola çıktım. Tasarladım, geliştirdim, açık kaynak olarak paylaştım.',
   'project_tabs_label':'Projeler arasında geçiş yap',
@@ -94,7 +94,7 @@ CREATIVE={
   'hero_eyebrow':'FRONTEND / ARCHITECTURE / PRODUCT',
   'creative_hero':'From pixels<br><em>to products.</em>',
   'creative_intro':'Hi, I’m Uğur Can. I build interfaces, shape systems and turn ideas into working products.',
-  'scene_caption':'There’s a system beneath the surface.','layers_open':'Explore layers','layers_close':'Close layers',
+  'live_canvas':'LIVE CANVAS','scene_expand':'Explore fullscreen','scene_close':'Close','scene_modes':'Scene view','mode_pixels':'Pixels','mode_code':'Code','mode_sphere':'Sphere','scatter':'Scatter','gather':'Rebuild','scene_pulse':'Create a wave','scene_instruction':'Move to push · click to make a wave','scene_dialog_label':'Interactive particle scene','scene_caption':'There’s a system beneath the surface.','layers_open':'Explore layers','layers_close':'Close layers',
   'work_eyebrow':'SELECTED WORK','work_title':'Built out<br><em>of curiosity.</em>',
   'work_intro':'Started with my own needs. Designed, developed and shared as open source.',
   'project_tabs_label':'Switch between projects',
@@ -125,10 +125,10 @@ def job(row,lang,compact=False):
  return '<article class="job"><span class="company-mark" aria-hidden="true">'+company[0]+'</span><div class="job-main"><div class="job-company"><h3>'+company+'</h3>'+current+'</div><p class="job-role">'+role+'</p><p class="job-mode">'+(e(loc(row['mode'],lang)) if row.get('mode') else '')+'</p></div><time>'+dates+'</time></article>'
 def school(row,lang):return '<article class="school"><span class="education-mark" aria-hidden="true">↗</span><div><h4>'+e(loc(row['school'],lang))+'</h4><p>'+e(loc(row['degree'],lang))+'</p><time>'+e(period(row,lang))+'</time></div></article>'
 def project(p,lang,prefix):
- c=COPY[lang];number=DATA['projects'].index(p)+1
+ c=COPY[lang];number=DATA['projects'].index(p)+1;explore='3D’de keşfet' if lang=='tr' else 'Explore in 3D'
  bullets=''.join('<li>'+e(x)+'</li>' for x in p['details'][lang])
  tags=''.join('<span>'+e(t)+'</span>' for t in p['stack'])
- return '<article class="project-panel project-'+p['id']+'" id="panel-'+p['id']+'" aria-labelledby="tab-'+p['id']+'"><div class="project-visual"><div class="window-bar"><span class="window-dots" aria-hidden="true">● ● ●</span><span>'+e(p['name'])+'</span><span aria-hidden="true">↗</span></div><div class="project-image-wrap"><img src="'+prefix+'/assets/'+p['image']+'" alt="'+e(p['name'])+'" loading="lazy" width="1440" height="900"></div><span class="project-watermark" aria-hidden="true">0'+str(number)+'</span></div><div class="project-body"><div class="project-title"><span class="project-category">'+e(p['category'][lang])+'</span><h3>'+e(p['name'])+'</h3></div><div class="project-description"><p>'+e(p['description'][lang])+'</p><div class="tech-tags">'+tags+'</div></div><div class="project-links"><a class="button" href="'+e(p['site'])+'" target="_blank" rel="noopener noreferrer">'+c['visit']+' <span aria-hidden="true">↗</span></a><a class="text-link" href="'+e(p['repo'])+'" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></div><details class="project-details"><summary>'+c['technical']+'<span aria-hidden="true">+</span></summary><ul>'+bullets+'</ul></details></article>'
+ return '<article class="project-panel project-'+p['id']+'" id="panel-'+p['id']+'" aria-labelledby="tab-'+p['id']+'"><div class="project-visual"><div class="window-bar"><span class="window-dots" aria-hidden="true">● ● ●</span><span>'+e(p['name'])+'</span><span aria-hidden="true">↗</span></div><div class="project-image-wrap"><img src="'+prefix+'/assets/'+p['image']+'" alt="'+e(p['name'])+'" loading="lazy" width="1440" height="900"></div><span class="project-watermark" aria-hidden="true">0'+str(number)+'</span></div><div class="project-body"><div class="project-title"><span class="project-category">'+e(p['category'][lang])+'</span><h3>'+e(p['name'])+'</h3></div><div class="project-description"><p>'+e(p['description'][lang])+'</p><div class="tech-tags">'+tags+'</div></div><div class="project-links"><a class="button" href="'+e(p['site'])+'" target="_blank" rel="noopener noreferrer">'+c['visit']+' <span aria-hidden="true">↗</span></a><a class="text-link" href="'+e(p['repo'])+'" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><button type="button" class="text-link project-in-scene" disabled data-project="'+p['id']+'">'+explore+' <span aria-hidden="true">↗</span></button></div></div><details class="project-details"><summary>'+c['technical']+'<span aria-hidden="true">+</span></summary><ul>'+bullets+'</ul></details></article>'
 
 PAGE=Template((ROOT/'template.html').read_text())
 

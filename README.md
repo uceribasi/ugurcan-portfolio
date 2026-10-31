@@ -10,7 +10,8 @@ Live temporary address: http://ugurcan.77.92.144.145.sslip.io/
 - Portfolio structure: `website/template.html`.
 - Layout and locally hosted typography: `website/styles.css`.
 - Keyboard-accessible project tabs and navigation: `website/script.js`.
-- Interactive interface, logic and system layers: `website/scene.js`.
+- GPU particle morphing, pointer force fields and native modal: `website/scene.js`.
+- 3D product screen carousel, raycast selection and swipe controls: `website/project-scene.js`.
 
 Run `npm ci` and `npm run build`. Generated HTML and the local Three.js bundle are
 checked in. Preview with `npm run preview` on port 4175.
@@ -25,11 +26,19 @@ button and do not load Three.js.
 
 ## Interaction and accessibility
 
-The original 3D interface illustration splits into three layers. Visitors can
-pause motion. Rendering pauses off-screen and in background tabs, caps device
-pixel ratio, honors reduced-motion preferences and has a static CSS fallback.
-Project tabs support left/right arrows, Home and End with visible focus. Content
-is visible without scroll-reveal JavaScript. The CV remains separately readable.
+The hero is a custom GLSL particle field that assembles a pixel signature, code
+brackets, a breathing sphere or actual project images. Visitors can scatter and
+rebuild it, push particles with a pointer and trigger shockwaves. A native modal
+expands the same canvas, supports Escape and restores focus. Project tabs update
+the particle source; each project's Explore in 3D control opens its sampled image.
+
+The work section uses one shared Three.js renderer with textured 3D application
+screens. Tab selection moves the selected screen forward; arrows, horizontal
+swipes and raycast clicks on neighboring screens choose projects. Original images
+remain as a fallback. Renderers pause off-screen/in background tabs and cap pixel
+density. Reduced-motion preferences disable automatic animation and make manual
+transitions immediate. Project tabs support arrow keys, Home and End; all career
+content is available without scroll animations. The CV uses a separate layout.
 
 Three.js 0.187.0 is pinned and bundled locally. Its MIT license is included in
 `website/vendor/three/LICENSE`. Space Grotesk and Instrument Serif are hosted
@@ -42,6 +51,6 @@ Career, education and certifications were read from the user-provided LinkedIn
 profile on 2026-10-31. Job dates are preserved, including overlapping GittiGidiyor
 and Finartz entries. Employer achievements and per-role technology stacks are
 not inferred. Project details come from the user's repositories; project images
-are actual app or product site captures. The hero's 3D interface is an original
-illustration, not a screenshot of a shipped product. Portrait: public GitHub avatar.
+are actual app or product site captures. The initial particle signature is original artwork. Project-mode particles and
+3D screens use the actual app/product captures. Portrait: public GitHub avatar.
 Contact links use public GitHub and LinkedIn profiles.

@@ -39,6 +39,7 @@ if (tablist && projectTabs.length) {
       panel.classList.remove('is-entering');
       if (selected && !reduceMotion.matches) {void panel.offsetWidth; panel.classList.add('is-entering');}
     });
+    document.dispatchEvent(new CustomEvent('portfolio:project-change', {detail: {id: tab.id.replace('tab-','')}}));
     if (moveFocus) tab.focus();
   };
   projectTabs.forEach((tab, index) => {
@@ -79,3 +80,5 @@ if (header) {
 }
 const printButton = document.getElementById('print-cv');
 if (printButton) printButton.addEventListener('click', () => window.print());
+
+document.querySelectorAll('.project-in-scene').forEach(button => button.addEventListener('click', () => {document.dispatchEvent(new CustomEvent('portfolio:explore-project', {detail:{id:button.dataset.project}}));}));
