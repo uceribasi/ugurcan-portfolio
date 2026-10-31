@@ -71,6 +71,42 @@ COPY={
   'cv_projects':'Open-source projects','cv_tech':'Technologies & focus areas','cv_name':'Curriculum vitae','cv_location':'Istanbul, Türkiye',
  }
 }
+CREATIVE={
+ 'tr':{
+  'nav_work':'İşler','nav_about':'Hakkımda','nav_journey':'Yolculuk',
+  'hero_eyebrow':'FRONTEND / MİMARİ / ÜRÜN',
+  'creative_hero':'Pikselden<br><em>ürüne.</em>',
+  'creative_intro':'Merhaba, ben Uğur Can. Arayüzler geliştiriyor, sistemler kuruyor ve fikirleri çalışan ürünlere dönüştürüyorum.',
+  'scene_caption':'Yüzeyin altında bir sistem var.','layers_open':'Katmanları aç','layers_close':'Katmanları kapat',
+  'work_eyebrow':'SEÇİLİ İŞLER','work_title':'Meraktan<br><em>doğan işler.</em>',
+  'work_intro':'Kendi ihtiyaçlarımdan yola çıktım. Tasarladım, geliştirdim, açık kaynak olarak paylaştım.',
+  'project_tabs_label':'Projeler arasında geçiş yap',
+  'about_eyebrow':'YAKLAŞIMIM','creative_about_title':'Arayüzü görürüm.<br><em>Bütünü düşünürüm.</em>',
+  'craft_title':'Çalıştığım katmanlar',
+  'journey_eyebrow':'DENEYİM','creative_experience_title':'Her ekip,<br><em>yeni bir bakış.</em>',
+  'career_note':'E-ticaret, fintech, dijital yayıncılık ve eğitim. Farklı ürünler, farklı ölçekler, biriken deneyim.',
+  'learning_eyebrow':'ÖĞRENME','creative_education_title':'Merak, hep<br><em>devam ediyor.</em>',
+  'contact_eyebrow':'İLETİŞİM','contact_short':'Yazılım, ürünler ve yeni fikirler üzerine.',
+  'creative_contact_title':'Bir sonraki<br><em>iyi fikre.</em>','footer_note':'Düşünerek tasarlandı. Kodla üretildi.',
+ },
+ 'en':{
+  'nav_work':'Work','nav_about':'About','nav_journey':'Journey',
+  'hero_eyebrow':'FRONTEND / ARCHITECTURE / PRODUCT',
+  'creative_hero':'From pixels<br><em>to products.</em>',
+  'creative_intro':'Hi, I’m Uğur Can. I build interfaces, shape systems and turn ideas into working products.',
+  'scene_caption':'There’s a system beneath the surface.','layers_open':'Explore layers','layers_close':'Close layers',
+  'work_eyebrow':'SELECTED WORK','work_title':'Built out<br><em>of curiosity.</em>',
+  'work_intro':'Started with my own needs. Designed, developed and shared as open source.',
+  'project_tabs_label':'Switch between projects',
+  'about_eyebrow':'MY APPROACH','creative_about_title':'I see the interface.<br><em>I think in systems.</em>',
+  'craft_title':'The layers I work across',
+  'journey_eyebrow':'EXPERIENCE','creative_experience_title':'Every team,<br><em>a new perspective.</em>',
+  'career_note':'E-commerce, fintech, digital streaming and education. Different products, different scales, growing experience.',
+  'learning_eyebrow':'LEARNING','creative_education_title':'Curiosity<br><em>never stops.</em>',
+  'contact_eyebrow':'CONTACT','contact_short':'On software, products and new ideas.',
+  'creative_contact_title':'Here’s to the<br><em>next good idea.</em>','footer_note':'Designed with intention. Built with code.',
+ }
+}
 IDS=['about','experience','projects','technologies','education','contact']
 MONTHS={'tr':['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'],'en':['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
 def loc(value,lang):return value[lang] if isinstance(value,dict) else value
@@ -89,32 +125,24 @@ def job(row,lang,compact=False):
  return '<article class="job"><span class="company-mark" aria-hidden="true">'+company[0]+'</span><div class="job-main"><div class="job-company"><h3>'+company+'</h3>'+current+'</div><p class="job-role">'+role+'</p><p class="job-mode">'+(e(loc(row['mode'],lang)) if row.get('mode') else '')+'</p></div><time>'+dates+'</time></article>'
 def school(row,lang):return '<article class="school"><span class="education-mark" aria-hidden="true">↗</span><div><h4>'+e(loc(row['school'],lang))+'</h4><p>'+e(loc(row['degree'],lang))+'</p><time>'+e(period(row,lang))+'</time></div></article>'
 def project(p,lang,prefix):
- c=COPY[lang]
+ c=COPY[lang];number=DATA['projects'].index(p)+1
  bullets=''.join('<li>'+e(x)+'</li>' for x in p['details'][lang])
  tags=''.join('<span>'+e(t)+'</span>' for t in p['stack'])
- return '<article class="project project-'+p['id']+'"><div class="project-visual"><img src="'+prefix+'/assets/'+p['image']+'" alt="'+e(p['name'])+'" loading="lazy" width="1440" height="900"></div><div class="project-content"><div class="project-heading"><img src="'+prefix+'/assets/'+p['logo']+'" width="38" height="38" alt=""><div><p class="project-category">'+e(p['category'][lang])+'</p><h3>'+e(p['name'])+'</h3></div></div><p class="project-description">'+e(p['description'][lang])+'</p><div class="tech-tags">'+tags+'</div><div class="project-links"><a href="'+e(p['site'])+'" target="_blank" rel="noopener noreferrer">'+c['visit']+' <span aria-hidden="true">↗</span></a><a href="'+e(p['repo'])+'" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div><details class="project-details"><summary>'+c['technical']+'<span aria-hidden="true">+</span></summary><ul>'+bullets+'</ul></details></div></article>'
+ return '<article class="project-panel project-'+p['id']+'" id="panel-'+p['id']+'" aria-labelledby="tab-'+p['id']+'"><div class="project-visual"><div class="window-bar"><span class="window-dots" aria-hidden="true">● ● ●</span><span>'+e(p['name'])+'</span><span aria-hidden="true">↗</span></div><div class="project-image-wrap"><img src="'+prefix+'/assets/'+p['image']+'" alt="'+e(p['name'])+'" loading="lazy" width="1440" height="900"></div><span class="project-watermark" aria-hidden="true">0'+str(number)+'</span></div><div class="project-body"><div class="project-title"><span class="project-category">'+e(p['category'][lang])+'</span><h3>'+e(p['name'])+'</h3></div><div class="project-description"><p>'+e(p['description'][lang])+'</p><div class="tech-tags">'+tags+'</div></div><div class="project-links"><a class="button" href="'+e(p['site'])+'" target="_blank" rel="noopener noreferrer">'+c['visit']+' <span aria-hidden="true">↗</span></a><a class="text-link" href="'+e(p['repo'])+'" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></div><details class="project-details"><summary>'+c['technical']+'<span aria-hidden="true">+</span></summary><ul>'+bullets+'</ul></details></article>'
 
-PAGE=Template('''<!doctype html><html lang="$lang"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>$title</title><meta name="description" content="$description"><meta name="theme-color" content="#f7f7f4"><meta property="og:title" content="$title"><meta property="og:description" content="$description"><meta property="og:type" content="profile"><link rel="icon" href="$prefix/assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="$prefix/styles.css"><link rel="stylesheet" href="$prefix/motion.css"><link rel="alternate" hreflang="tr" href="$tr_url"><link rel="alternate" hreflang="en" href="$en_url"></head><body>
-<a class="skip" href="#main">$skip</a><div class="page-shell"><aside class="sidebar"><a href="#main" class="identity"><span class="monogram" aria-hidden="true">uc.</span><span class="identity-name">Uğur Can<br>Çeribaşı<span class="identity-role">Senior Software Developer</span></span></a><button class="menu-button" type="button" aria-label="$menu" aria-expanded="false" aria-controls="main-nav">☰</button><nav id="main-nav" aria-label="$nav_label">$nav_html</nav><div class="sidebar-bottom"><div class="languages" aria-label="$language_label"><a href="$tr_url" $tr_current>TR</a><span>/</span><a href="$en_url" $en_current>EN</a></div><a class="cv-link" href="cv.html">$cv <span aria-hidden="true">↗</span></a><div class="sidebar-socials"><a href="$github" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="$linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div><p class="sidebar-location">$location</p></div></aside>
-<main id="main"><section class="hero" aria-labelledby="hero-title"><div class="hero-kicker"><span class="tiny-dot"></span>$hello</div><div class="hero-layout"><div class="hero-copy"><h1 id="hero-title">$hero</h1><p class="hero-intro">$intro</p><div class="hero-actions"><a class="button" href="#projects">$projects_cta <span aria-hidden="true">↘</span></a><a class="text-link" href="cv.html">$cv <span aria-hidden="true">↗</span></a></div></div><div class="hero-scene" id="hero-scene"><div class="scene-topline"><span>$scene_label</span><span class="scene-index" aria-hidden="true">01 / 03</span></div><div class="scene-surface"><div class="scene-fallback" aria-hidden="true"><span></span><span></span><span></span></div><canvas id="scene-canvas" aria-hidden="true"></canvas></div><div class="scene-bottomline"><span class="scene-hint">$scene_hint <span aria-hidden="true">↗</span></span><div class="scene-controls" hidden><button type="button" id="scene-shape" aria-label="$scene_shape" title="$scene_shape">↻</button><button type="button" id="scene-toggle" aria-label="$scene_toggle" data-pause="$scene_toggle" data-resume="$scene_resume" aria-pressed="false" title="$scene_toggle">Ⅱ</button></div></div></div></div><div class="hero-footer"><div><span class="micro-label">$current</span><p>Senior Software Developer <span class="muted">/</span> <strong>Trendyol Group</strong></p></div><div><span class="micro-label">$since</span><p>$since_text</p></div></div></section>
-<section class="section about-section" id="about" aria-labelledby="about-title"><div class="section-label">$about_label</div><div class="about-layout"><div class="about-identity"><h2 id="about-title">$about_title</h2><div class="portrait-wrap"><img class="portrait" src="$prefix/assets/portrait.jpg" alt="$photo_alt" width="460" height="460"><div class="portrait-note"><span>$location</span><span aria-hidden="true">↗</span></div></div></div><div class="about-text"><p>$about_p1</p><p>$about_p2</p><p>$about_p3</p><div class="focus-tags">$focus_html</div></div></div></section>
-<section class="section experience-section" id="experience" aria-labelledby="experience-title"><div class="section-label">$experience_label</div><div class="section-top"><h2 id="experience-title">$experience_title</h2><p>$experience_intro</p></div><div class="timeline">$experience_html</div><details class="earlier"><summary>$earlier <span aria-hidden="true">+</span></summary><div class="timeline">$earlier_html</div></details></section>
-<section class="section projects-section" id="projects" aria-labelledby="projects-title"><div class="section-label">$projects_label</div><div class="section-top"><h2 id="projects-title">$projects_title</h2><p>$projects_intro</p></div><div class="projects-grid">$projects_html</div><p class="project-image-note">$project_note</p></section>
-<section class="section skills-section" id="technologies" aria-labelledby="skills-title"><div class="section-label">$skills_label</div><div class="section-top"><h2 id="skills-title">$skills_title</h2><p>$skills_intro</p></div><div class="skills-grid">$skills_html</div></section>
-<section class="section education-section" id="education" aria-labelledby="education-title"><div class="section-label">$education_label</div><h2 id="education-title">$education_title</h2><div class="education-grid"><div><h3 class="subheading">$education</h3>$education_html</div><div><h3 class="subheading">$certificates</h3><div class="certificates">$certificates_html</div><a class="text-link cert-link" href="$linkedin" target="_blank" rel="noopener noreferrer">$cert_link <span aria-hidden="true">↗</span></a></div></div></section>
-<section class="section contact-section" id="contact" aria-labelledby="contact-title"><div class="section-label">$contact_label</div><h2 id="contact-title">$contact_title</h2><div class="contact-bottom"><p>$contact_body</p><div class="contact-links"><a class="button" href="$linkedin" target="_blank" rel="noopener noreferrer">$contact_cta <span aria-hidden="true">↗</span></a><a class="text-link" href="$github" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></div></section>
-<footer><p>$footer</p><p>$updated</p><a href="#main" aria-label="$top_label">↑</a></footer></main></div><script src="$prefix/script.js" defer></script><script type="module" src="$prefix/scene.bundle.js"></script></body></html>''')
+PAGE=Template((ROOT/'template.html').read_text())
 
 CV=Template('''<!doctype html><html lang="$lang"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Uğur Can Çeribaşı — CV</title><meta name="description" content="$description"><link rel="icon" href="$prefix/assets/mark.svg"><link rel="stylesheet" href="$prefix/cv.css"></head><body><div class="cv-toolbar"><a href="./">← $back</a><button id="print-cv" type="button">$print</button></div><main class="resume"><header><div><p class="cv-eyebrow">$cv_name</p><h1>Uğur Can Çeribaşı</h1><p class="cv-role">Senior Software Developer · Trendyol Group</p></div><div class="cv-contact"><span>$cv_location</span><a href="$github">github.com/uceribasi</a><a href="$linkedin">LinkedIn ↗</a></div></header><p class="cv-summary">$cv_summary</p><section><h2>$experience_all</h2>$cv_experience_html</section><section><h2>$cv_projects</h2>$cv_projects_html</section><section><h2>$cv_tech</h2><p class="cv-technologies">$cv_skills_html</p></section><section><h2>$education</h2>$cv_education_html</section><section><h2>$certificates</h2><p class="cv-cert-list">$cv_certificates_html</p></section><footer>$updated</footer></main><script src="$prefix/script.js" defer></script></body></html>''')
 
 for lang,copy in COPY.items():
- d=dict(copy);prefix='..' if lang=='en' else '.'
+ d=dict(copy);d.update(CREATIVE[lang]);prefix='..' if lang=='en' else '.'
  d.update(lang=lang,prefix=prefix,github=DATA['github'],linkedin=DATA['linkedin'],location=e(DATA['location'][lang]),tr_url='../' if lang=='en' else './',en_url='./' if lang=='en' else 'en/',tr_current='aria-current="page"' if lang=='tr' else '',en_current='aria-current="page"' if lang=='en' else '',nav_label='Bölümler' if lang=='tr' else 'Sections',language_label='Sayfa dili' if lang=='tr' else 'Page language',top_label='Başa dön' if lang=='tr' else 'Back to top')
  d['nav_html']=''.join('<a href="#'+ident+'"><span>0'+str(i+1)+'</span>'+label+'</a>' for i,(ident,label) in enumerate(zip(IDS,copy['nav'])))
  d['focus_html']=''.join('<span>'+e(t)+'</span>' for t in copy['focus'])
  d['experience_html']=''.join(job(j,lang) for j in DATA['experience'][:6])
  d['earlier_html']=''.join(job(j,lang) for j in DATA['experience'][6:])
  d['projects_html']=''.join(project(p,lang,prefix) for p in DATA['projects'])
+ d['project_tabs']=''.join('<button type="button" class="project-tab" id="tab-'+p['id']+'" aria-controls="panel-'+p['id']+'"><span class="tab-number">0'+str(i+1)+'</span><img src="'+prefix+'/assets/'+p['logo']+'" width="28" height="28" alt=""><span>'+e(p['name'])+'</span><span class="tab-arrow" aria-hidden="true">↗</span></button>' for i,p in enumerate(DATA['projects']))
  d['skills_html']=''.join('<article><span class="skill-num">0'+str(i+1)+'</span><h3>'+e(loc(s['name'],lang))+'</h3><div class="skill-tags">'+''.join('<span>'+e(t)+'</span>' for t in s['items'])+'</div></article>' for i,s in enumerate(DATA['skills']))
  d['education_html']=''.join(school(s,lang) for s in DATA['education'])
  d['certificates_html']=''.join('<article class="certificate"><span class="cert-mark" aria-hidden="true">↗</span><div><h4>'+e(c['name'])+'</h4><p>'+e(c['issuer'])+' <span>·</span> '+date(c['date'],lang)+'</p></div></article>' for c in DATA['certifications'])
