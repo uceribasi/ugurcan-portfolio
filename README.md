@@ -26,8 +26,8 @@ button and do not load Three.js.
 
 ## Interaction and accessibility
 
-The hero is a custom GLSL particle field that assembles a pixel signature, code
-brackets, a breathing sphere or actual project images. Visitors can scatter and
+The hero is a custom GLSL particle field that assembles a pixel signature, an agent
+workflow diagram, a breathing sphere or actual project images. Visitors can scatter and
 rebuild it, push particles with a pointer and trigger shockwaves. A native modal
 expands the same canvas, supports Escape and restores focus. Project tabs update
 the particle source; each project's Explore in 3D control opens its sampled image.
@@ -54,3 +54,5 @@ not inferred. Project details come from the user's repositories; project images
 are actual app or product site captures. The initial particle signature is original artwork. Project-mode particles and
 3D screens use the actual app/product captures. Portrait: public GitHub avatar.
 Contact links use public GitHub and LinkedIn profiles.
+
+The personal positioning and AI agent/workflow focus were supplied directly by the user on 2026-11-01. Verified employer titles remain separate from the AI-focused full stack positioning.

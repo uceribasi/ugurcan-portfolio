@@ -43,3 +43,7 @@
 .school p,.certificate p,.school time{color:#61728d}
 .particle-modes button[aria-pressed=true]{background:#81aaff;color:#0b1833}
 .scene-expanded .particle-instruction{color:#9eafd0}
+
+/* AI product positioning uses a compact second line in Turkish. */
+html[lang=tr] .hero h1 em{font-size:1.02em}
+@media(max-width:650px){html[lang=tr] .hero h1{font-size:clamp(61px,17.7vw,112px)}}

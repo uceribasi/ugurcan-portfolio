@@ -74,9 +74,21 @@ function sourceCanvas(code=false){
   const ctx=image.getContext('2d');ctx.fillStyle='#070c17';ctx.fillRect(0,0,1024,650);
   const gradient=ctx.createLinearGradient(120,100,930,580);
   gradient.addColorStop(0,'#e5efff');gradient.addColorStop(.45,'#81aaff');gradient.addColorStop(1,code?'#bad7ff':'#4169c5');
-  ctx.fillStyle=gradient;ctx.textAlign='center';ctx.textBaseline='middle';
-  ctx.font=code?'bold 390px monospace':'700 520px Space,Arial,sans-serif';
-  ctx.fillText(code?'</>':'uc.',512,code?332:322);
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  if(code){
+    // A diagram of an agent workflow, rendered as particle artwork.
+    ctx.strokeStyle=gradient;ctx.lineWidth=12;ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(250,325);ctx.lineTo(412,325);ctx.moveTo(548,325);ctx.lineTo(640,325);ctx.bezierCurveTo(675,325,665,180,744,180);ctx.moveTo(640,325);ctx.bezierCurveTo(675,325,665,470,744,470);ctx.stroke();
+    ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(804,242);ctx.bezierCurveTo(804,290,680,280,550,288);ctx.stroke();
+    for(const [x,y] of [[395,325],[728,180],[728,470]]){ctx.fillStyle=gradient;ctx.beginPath();ctx.moveTo(x+15,y);ctx.lineTo(x-7,y-12);ctx.lineTo(x-7,y+12);ctx.closePath();ctx.fill();}
+    for(const node of [{x:185,y:325,label:'IN'},{x:480,y:325,label:'AI',square:true},{x:804,y:180,label:'TOOL'},{x:804,y:470,label:'OUT'}]){
+      ctx.fillStyle='#0b1120';ctx.strokeStyle=gradient;ctx.lineWidth=10;ctx.beginPath();
+      if(node.square)ctx.roundRect(node.x-65,node.y-65,130,130,22);else ctx.arc(node.x,node.y,60,0,Math.PI*2);
+      ctx.fill();ctx.stroke();ctx.fillStyle=gradient;ctx.font=(node.label==='TOOL'?'700 30px':'700 42px')+' monospace';ctx.fillText(node.label,node.x,node.y+2);
+    }
+  }else{
+    ctx.fillStyle=gradient;ctx.font='700 520px Space,Arial,sans-serif';ctx.fillText('uc.',512,322);
+  }
   return image;
 }
 function sample(source,columns,rows){

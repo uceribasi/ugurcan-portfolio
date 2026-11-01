@@ -156,8 +156,36 @@
   "skills": [
     {
       "name": {
-        "tr": "Frontend & BFF",
-        "en": "Frontend & BFF"
+        "tr": "Agentlar & iş akışları",
+        "en": "Agents & workflows"
+      },
+      "items": [
+        "AI agent design",
+        "AI workflows",
+        "Prompt engineering",
+        "AI-assisted development"
+      ]
+    },
+    {
+      "name": {
+        "tr": "AI uygulamaları & veri",
+        "en": "AI applications & data"
+      },
+      "items": [
+        "LLM applications",
+        "RAG",
+        "Embeddings",
+        "Vector databases",
+        "Python",
+        "pandas",
+        "NumPy",
+        "Jupyter"
+      ]
+    },
+    {
+      "name": {
+        "tr": "Full stack geliştirme",
+        "en": "Full stack development"
       },
       "items": [
         "React",
@@ -166,46 +194,22 @@
         "JavaScript",
         "NestJS",
         "GraphQL",
-        "REST"
-      ]
-    },
-    {
-      "name": {
-        "tr": "Mimari & liderlik",
-        "en": "Architecture & leadership"
-      },
-      "items": [
-        "Micro frontends",
-        "Modular architecture",
-        "Technical governance",
-        "Team development"
-      ]
-    },
-    {
-      "name": {
-        "tr": "AI & veri",
-        "en": "AI & data"
-      },
-      "items": [
-        "Python",
-        "LLM applications",
-        "RAG",
-        "Embeddings",
-        "Vector databases",
-        "pandas",
-        "NumPy",
-        "Jupyter"
-      ]
-    },
-    {
-      "name": {
-        "tr": "Ürün geliştirme",
-        "en": "Product development"
-      },
-      "items": [
+        "REST",
         "Rust",
         "Tauri",
-        "Vite",
+        "Vite"
+      ]
+    },
+    {
+      "name": {
+        "tr": "Mimari & ürüne taşıma",
+        "en": "Architecture & delivery"
+      },
+      "items": [
+        "Modular architecture",
+        "Micro frontends",
+        "Technical governance",
+        "Team development",
         "Docker",
         "Coolify",
         "Git",
@@ -320,5 +324,10 @@
     }
   ],
   "source_reviewed": "2026-10-31",
-  "source_notes": "Career, education, certifications and professional bio read from the user-provided LinkedIn profile through the signed-in Chrome UI. Project details verified in their repositories. Preserve overlapping GittiGidiyor and Finartz dates; do not infer achievements or per-employer technology stacks. Do not publish private analytics, personal contact details, grades or unrelated profile content."
+  "source_notes": "Career, education, certifications and professional bio read from the user-provided LinkedIn profile through the signed-in Chrome UI. Project details verified in their repositories. Preserve overlapping GittiGidiyor and Finartz dates; do not infer achievements or per-employer technology stacks. Do not publish private analytics, personal contact details, grades or unrelated profile content.",
+  "positioning": {
+    "tr": "AI Odaklı Full Stack Developer",
+    "en": "AI-Focused Full Stack Developer"
+  },
+  "positioning_source": "User-described current focus on 2026-11-01: AI-focused full stack development with a frontend background; effective AI use, agent design and workflow creation. This positioning is separate from verified employer job titles."
 }
