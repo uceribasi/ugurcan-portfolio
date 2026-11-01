@@ -17,7 +17,7 @@ async function startShowcase(){
   const textures=await Promise.all(assets.map(async asset=>{
     const img=new Image();img.src=new URL('./assets/'+asset,import.meta.url).href;await img.decode();
     const buffer=document.createElement('canvas');buffer.width=1024;buffer.height=640;
-    const ctx=buffer.getContext('2d');ctx.fillStyle='#12171b';ctx.fillRect(0,0,1024,640);
+    const ctx=buffer.getContext('2d');ctx.fillStyle='#101827';ctx.fillRect(0,0,1024,640);
     const scale=Math.min(1004/img.width,620/img.height),width=img.width*scale,height=img.height*scale;
     ctx.drawImage(img,(1024-width)/2,(640-height)/2,width,height);
     const texture=new THREE.CanvasTexture(buffer);texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=4;return texture;
@@ -31,21 +31,21 @@ async function startShowcase(){
   const live=document.createElement('span');live.className='scene-announcement';live.setAttribute('role','status');shell.appendChild(live);
   const scene=new THREE.Scene();
   const camera=new THREE.PerspectiveCamera(36,1,.1,40);camera.position.set(0,.08,8);camera.lookAt(0,0,0);
-  scene.add(new THREE.HemisphereLight(0xffffff,0x6b7b76,3));
+  scene.add(new THREE.HemisphereLight(0xffffff,0x536681,3));
   const light=new THREE.DirectionalLight(0xffffff,4);light.position.set(-4,6,5);scene.add(light);
-  const fill=new THREE.DirectionalLight(0xb9ccdc,2);fill.position.set(4,0,-2);scene.add(fill);
+  const fill=new THREE.DirectionalLight(0xb7cbed,2);fill.position.set(4,0,-2);scene.add(fill);
   const boardGeometry=new THREE.BoxGeometry(6.08,3.89,.1),screenGeometry=new THREE.PlaneGeometry(5.96,3.725),edgeGeometry=new THREE.EdgesGeometry(boardGeometry);
   const cards=textures.map((texture,index)=>{
     const group=new THREE.Group();
-    const frameMaterial=new THREE.MeshStandardMaterial({color:0x293434,metalness:.55,roughness:.35});
+    const frameMaterial=new THREE.MeshStandardMaterial({color:0x263348,metalness:.55,roughness:.35});
     const frame=new THREE.Mesh(boardGeometry,frameMaterial);frame.userData.projectIndex=index;group.add(frame);
     const screenMaterial=new THREE.MeshBasicMaterial({map:texture,toneMapped:false});
     const screen=new THREE.Mesh(screenGeometry,screenMaterial);screen.position.z=.058;screen.userData.projectIndex=index;group.add(screen);
-    const edge=new THREE.LineSegments(edgeGeometry,new THREE.LineBasicMaterial({color:0x879b94,transparent:true,opacity:.45}));group.add(edge);
+    const edge=new THREE.LineSegments(edgeGeometry,new THREE.LineBasicMaterial({color:0x91a7c8,transparent:true,opacity:.45}));group.add(edge);
     scene.add(group);return {group,screenMaterial,brightness:1,meshes:[screen,frame]};
   });
   const shadowCanvas=document.createElement('canvas');shadowCanvas.width=256;shadowCanvas.height=128;
-  const shadowCtx=shadowCanvas.getContext('2d'),gradient=shadowCtx.createRadialGradient(128,64,4,128,64,115);gradient.addColorStop(0,'rgba(12,22,18,.28)');gradient.addColorStop(1,'rgba(12,22,18,0)');shadowCtx.fillStyle=gradient;shadowCtx.fillRect(0,0,256,128);
+  const shadowCtx=shadowCanvas.getContext('2d'),gradient=shadowCtx.createRadialGradient(128,64,4,128,64,115);gradient.addColorStop(0,'rgba(3,9,21,.38)');gradient.addColorStop(1,'rgba(3,9,21,0)');shadowCtx.fillStyle=gradient;shadowCtx.fillRect(0,0,256,128);
   const shadowTexture=new THREE.CanvasTexture(shadowCanvas),shadow=new THREE.Mesh(new THREE.PlaneGeometry(8,2),new THREE.MeshBasicMaterial({map:shadowTexture,transparent:true,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.position.set(0,-2.1,0);scene.add(shadow);
   let active=Math.max(0,tabs.findIndex(tab=>tab.getAttribute('aria-selected')==='true')),frameId=0,visible=false,modalOpen=false,previous=0,time=0,pointer={x:0,y:0},drag=null;
   const targetPosition=new THREE.Vector3(),targetRotation=new THREE.Euler();

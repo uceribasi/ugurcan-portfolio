@@ -48,7 +48,7 @@ void main(){
   p+=normalize(wave+vec3(.001))*ring*.6;
   vec3 color=aImageColor*uWeights.x+aCodeColor*uWeights.y+aSphereColor*uWeights.z;
   color=mix(color,aSphereColor,d*.85);
-  vColor=color+vec3(.22,.32,.15)*(proximity+ring*.75);
+  vColor=color+vec3(.12,.2,.40)*(proximity+ring*.75);
   float opacity=aImageAlpha*uWeights.x+aCodeAlpha*uWeights.y+uWeights.z*.82;
   vAlpha=mix(opacity,.8,d);
   vec4 mvPosition=modelViewMatrix*vec4(p,1.0);
@@ -71,9 +71,9 @@ void main(){
 
 function sourceCanvas(code=false){
   const image=document.createElement('canvas');image.width=1024;image.height=650;
-  const ctx=image.getContext('2d');ctx.fillStyle='#060b08';ctx.fillRect(0,0,1024,650);
+  const ctx=image.getContext('2d');ctx.fillStyle='#070c17';ctx.fillRect(0,0,1024,650);
   const gradient=ctx.createLinearGradient(120,100,930,580);
-  gradient.addColorStop(0,'#eaffc5');gradient.addColorStop(.45,'#d4ff72');gradient.addColorStop(1,code?'#86e5ee':'#8bbc52');
+  gradient.addColorStop(0,'#e5efff');gradient.addColorStop(.45,'#81aaff');gradient.addColorStop(1,code?'#bad7ff':'#4169c5');
   ctx.fillStyle=gradient;ctx.textAlign='center';ctx.textBaseline='middle';
   ctx.font=code?'bold 390px monospace':'700 520px Space,Arial,sans-serif';
   ctx.fillText(code?'</>':'uc.',512,code?332:322);
@@ -82,7 +82,7 @@ function sourceCanvas(code=false){
 function sample(source,columns,rows){
   const surface=document.createElement('canvas');surface.width=columns;surface.height=rows;
   const ctx=surface.getContext('2d',{willReadFrequently:true});
-  ctx.fillStyle='#090e09';ctx.fillRect(0,0,columns,rows);
+  ctx.fillStyle='#0b1120';ctx.fillRect(0,0,columns,rows);
   const fit=Math.min(columns/source.width,rows/source.height);
   const width=source.width*fit,height=source.height*fit;
   ctx.drawImage(source,(columns-width)/2,(rows-height)/2,width,height);
@@ -106,7 +106,7 @@ if(host&&canvas){
     const columns=compact.matches?76:120,rows=compact.matches?48:76,count=columns*rows;
     const imageSample=sample(sourceCanvas(),columns,rows),codeSample=sample(sourceCanvas(true),columns,rows);
     const image=new Float32Array(count*3),code=new Float32Array(count*3),sphere=new Float32Array(count*3),scatter=new Float32Array(count*3),colors=new Float32Array(count*3),seeds=new Float32Array(count);
-    const palette=[new THREE.Color('#d4ff72'),new THREE.Color('#88dfe5'),new THREE.Color('#c69aff'),new THREE.Color('#fff3c0')];
+    const palette=[new THREE.Color('#81aaff'),new THREE.Color('#b4d4ff'),new THREE.Color('#567dde'),new THREE.Color('#f0f5ff')];
     for(let i=0;i<count;i++){
       const x=i%columns,y=Math.floor(i/columns),seed=((i*16807)%2147483647)/2147483647;
       const random=(n)=>{const value=Math.sin((i+1)*n)*43758.5453;return value-Math.floor(value);};

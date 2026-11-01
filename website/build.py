@@ -35,7 +35,7 @@ COPY={
   'education_label':'05 / EĞİTİM & ÖĞRENME','education_title':'Öğrenmeye<br>devam ediyorum.','education':'Eğitim','certificates':'Sertifikalar','cert_link':'LinkedIn’de sertifikalar',
   'contact_label':'06 / İLETİŞİM','contact_title':'Bir fikir üzerine<br><span>konuşalım.</span>',
   'contact_body':'Yazılım, ürün geliştirme, açık kaynak veya ortak bir merak. Bana LinkedIn üzerinden ulaşabilir, çalışmalarımı GitHub’da inceleyebilirsin.',
-  'footer':'Uğur Can Çeribaşı · Kişisel portfolyo','updated':'Son güncelleme · Ekim 2026',
+  'footer':'Uğur Can Çeribaşı · Kişisel portfolyo','updated':'Son güncelleme · Kasım 2026',
   'cv_summary':'Frontend ve BFF geliştirme, mikro frontend mimarisi, GraphQL, teknik yönetişim ve ekip liderliği deneyimine sahip yazılım geliştirici. LLM uygulamaları, RAG ve veri odaklı projeler geliştiriyor. 2014’ten bu yana profesyonel yazılım geliştirme geçmişi.',
   'cv_projects':'Açık kaynak projeler','cv_tech':'Teknolojiler & odak alanları','cv_name':'Kısa özgeçmiş','cv_location':'İstanbul, Türkiye',
  },
@@ -66,7 +66,7 @@ COPY={
   'education_label':'05 / EDUCATION & LEARNING','education_title':'Always<br>learning.','education':'Education','certificates':'Certifications','cert_link':'Certifications on LinkedIn',
   'contact_label':'06 / CONTACT','contact_title':'Let’s talk<br><span>about an idea.</span>',
   'contact_body':'Software, product development, open source, or a shared curiosity. Connect with me on LinkedIn or explore my work on GitHub.',
-  'footer':'Uğur Can Çeribaşı · Personal portfolio','updated':'Last updated · October 2026',
+  'footer':'Uğur Can Çeribaşı · Personal portfolio','updated':'Last updated · November 2026',
   'cv_summary':'Software developer with experience in frontend and BFF development, micro frontend architecture, GraphQL, technical governance and team leadership. Builds LLM applications, RAG systems and data-focused personal projects. Professional software development background since 2014.',
   'cv_projects':'Open-source projects','cv_tech':'Technologies & focus areas','cv_name':'Curriculum vitae','cv_location':'Istanbul, Türkiye',
  }
@@ -132,7 +132,7 @@ def project(p,lang,prefix):
 
 PAGE=Template((ROOT/'template.html').read_text())
 
-CV=Template('''<!doctype html><html lang="$lang"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Uğur Can Çeribaşı — CV</title><meta name="description" content="$description"><link rel="icon" href="$prefix/assets/mark.svg"><link rel="stylesheet" href="$prefix/cv.css"></head><body><div class="cv-toolbar"><a href="./">← $back</a><button id="print-cv" type="button">$print</button></div><main class="resume"><header><div><p class="cv-eyebrow">$cv_name</p><h1>Uğur Can Çeribaşı</h1><p class="cv-role">Senior Software Developer · Trendyol Group</p></div><div class="cv-contact"><span>$cv_location</span><a href="$github">github.com/uceribasi</a><a href="$linkedin">LinkedIn ↗</a></div></header><p class="cv-summary">$cv_summary</p><section><h2>$experience_all</h2>$cv_experience_html</section><section><h2>$cv_projects</h2>$cv_projects_html</section><section><h2>$cv_tech</h2><p class="cv-technologies">$cv_skills_html</p></section><section><h2>$education</h2>$cv_education_html</section><section><h2>$certificates</h2><p class="cv-cert-list">$cv_certificates_html</p></section><footer>$updated</footer></main><script src="$prefix/script.js" defer></script></body></html>''')
+CV=Template('''<!doctype html><html lang="$lang"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Uğur Can Çeribaşı — CV</title><meta name="description" content="$description"><link rel="icon" href="$prefix/assets/mark.svg"><link rel="stylesheet" href="$prefix/cv.css?v=5"></head><body><div class="cv-toolbar"><a href="./">← $back</a><button id="print-cv" type="button">$print</button></div><main class="resume"><header><div><p class="cv-eyebrow">$cv_name</p><h1>Uğur Can Çeribaşı</h1><p class="cv-role">Senior Software Developer · Trendyol Group</p></div><div class="cv-contact"><span>$cv_location</span><a href="$github">github.com/uceribasi</a><a href="$linkedin">LinkedIn ↗</a></div></header><p class="cv-summary">$cv_summary</p><section><h2>$experience_all</h2>$cv_experience_html</section><section><h2>$cv_projects</h2>$cv_projects_html</section><section><h2>$cv_tech</h2><p class="cv-technologies">$cv_skills_html</p></section><section><h2>$education</h2>$cv_education_html</section><section><h2>$certificates</h2><p class="cv-cert-list">$cv_certificates_html</p></section><footer>$updated</footer></main><script src="$prefix/script.js" defer></script></body></html>''')
 
 for lang,copy in COPY.items():
  d=dict(copy);d.update(CREATIVE[lang]);prefix='..' if lang=='en' else '.'
